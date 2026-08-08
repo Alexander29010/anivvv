@@ -1,0 +1,595 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    background: #130b25;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+
+    background:
+        radial-gradient(circle at 20% 20%, #8b3d8f 0%, transparent 30%),
+        radial-gradient(circle at 80% 30%, #44318c 0%, transparent 30%),
+        radial-gradient(circle at 50% 90%, #9d416c 0%, transparent 35%),
+        #130b25;
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+.opening {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    text-align: center;
+
+    transition: 1s ease;
+}
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+}
+
+.opening-content {
+    max-width: 650px;
+
+    padding: 50px 35px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+}
+
+.cake {
+    font-size: 80px;
+
+    animation: floating 2s infinite ease-in-out;
+}
+
+.opening h1 {
+    margin: 20px 0 10px;
+
+    font-family: 'Dancing Script', cursive;
+
+    font-size: clamp(40px, 7vw, 70px);
+}
+
+.opening p {
+    color: #eee;
+
+    margin-bottom: 30px;
+}
+
+.open-btn,
+.celebrate-btn {
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(135deg, #ff6fae, #a66cff);
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(255,111,174,0.3);
+
+    transition: 0.3s;
+}
+
+.open-btn:hover,
+.celebrate-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow: 0 15px 35px rgba(255,111,174,0.5);
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-btn {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    transform: rotate(15deg) scale(1.1);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main-content {
+    display: none;
+
+    min-height: 100vh;
+}
+
+.main-content.show {
+    display: block;
+
+    animation: fadeIn 1.5s ease;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 100px 20px;
+}
+
+.small-title {
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    color: #ffc8df;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: 'Dancing Script', cursive;
+
+    font-size: clamp(55px, 10vw, 110px);
+
+    line-height: 1;
+
+    margin-bottom: 10px;
+}
+
+.hero h1 span {
+    font-family: sans-serif;
+}
+
+.hero h2 {
+    font-family: 'Dancing Script', cursive;
+
+    font-size: clamp(40px, 7vw, 70px);
+
+    color: #ffb7d7;
+}
+
+.intro {
+    max-width: 650px;
+
+    margin-top: 20px;
+
+    color: #e9ddeb;
+
+    line-height: 1.8;
+}
+
+.sparkle {
+    font-size: 40px;
+
+    animation: floating 2s infinite ease-in-out;
+}
+
+
+/* =========================
+   PHOTOS
+========================= */
+
+.photos {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 100px 20px;
+
+    text-align: center;
+}
+
+.photos h2,
+.wishes h2 {
+    font-family: 'Dancing Script', cursive;
+
+    font-size: 50px;
+}
+
+.section-desc {
+    margin: 10px 0 40px;
+
+    color: #d9c9dd;
+}
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    align-items: center;
+}
+
+.photo-card {
+    height: 420px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    border: 5px solid rgba(255,255,255,0.12);
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+
+    transition: 0.5s;
+}
+
+.photo-card:nth-child(1) {
+    transform: rotate(-4deg);
+}
+
+.photo-card:nth-child(3) {
+    transform: rotate(4deg);
+}
+
+.photo-card:hover {
+    transform: rotate(0) scale(1.05);
+    z-index: 2;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s;
+}
+
+.photo-card:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    padding: 100px 20px;
+}
+
+.message-card {
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 60px 50px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 30px 70px rgba(0,0,0,0.25);
+}
+
+.heart {
+    font-size: 55px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.message-card h2 {
+    font-family: 'Dancing Script', cursive;
+
+    font-size: 55px;
+
+    margin-bottom: 25px;
+}
+
+.message-card p {
+    color: #eee;
+
+    line-height: 2;
+
+    margin: 18px 0;
+}
+
+.message-card h3 {
+    font-family: 'Dancing Script', cursive;
+
+    font-size: 45px;
+
+    color: #ffb7d7;
+
+    margin-top: 20px;
+}
+
+.last-message {
+    font-family: 'Dancing Script', cursive;
+
+    font-size: 25px;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   WISHES
+========================= */
+
+.wishes {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 100px 20px;
+
+    text-align: center;
+}
+
+.wish-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 50px;
+}
+
+.wish-card {
+    padding: 35px 25px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    transition: 0.4s;
+}
+
+.wish-card:hover {
+    transform: translateY(-10px);
+
+    background: rgba(255,255,255,0.13);
+}
+
+.wish-card span {
+    font-size: 45px;
+}
+
+.wish-card h3 {
+    margin: 15px 0;
+
+    font-size: 22px;
+}
+
+.wish-card p {
+    color: #ddd;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   ENDING
+========================= */
+
+.ending {
+    text-align: center;
+
+    padding: 120px 20px;
+}
+
+.balloons {
+    font-size: 50px;
+
+    margin-bottom: 30px;
+}
+
+.ending h2 {
+    font-family: 'Dancing Script', cursive;
+
+    font-size: clamp(45px, 7vw, 75px);
+}
+
+.ending p {
+    color: #ddd;
+
+    margin: 20px auto 30px;
+
+    max-width: 600px;
+}
+
+.big-cake {
+    font-size: 100px;
+
+    margin: 30px;
+
+    animation: floating 2s infinite ease-in-out;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    color: #bdaec1;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 15px;
+    z-index: 999;
+
+    background: #ff6fae;
+
+    animation: fall 3s linear forwards;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes floating {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fall {
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .photo-grid,
+    .wish-container {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card {
+        height: 400px;
+
+        transform: none !important;
+    }
+
+    .message-card {
+        padding: 40px 25px;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+}
